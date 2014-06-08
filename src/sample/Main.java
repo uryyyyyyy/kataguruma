@@ -21,6 +21,7 @@ public class Main {
 		    str = br.readLine();
 		  }
 		  br.close();
+		  System.out.println(Caluculator.method(list).size());
 		  for(PersonDTO dto : Caluculator.method(list)){
 			  System.out.println(dto.getHeight() + " " + dto.getWeight());
 		  }
