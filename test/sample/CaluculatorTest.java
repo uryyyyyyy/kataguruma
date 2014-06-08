@@ -19,7 +19,7 @@ public class CaluculatorTest {
 		list.add(new PersonDTO(174,85));
 		list.add(new PersonDTO(174,65));
 		
-		assertThat(Caluculator.method(list), is(3));
+		assertThat(Caluculator.method(list).size(), is(3));
 	}
 
 }

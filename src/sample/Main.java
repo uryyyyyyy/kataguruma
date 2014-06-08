@@ -10,18 +10,20 @@ import java.util.List;
 public class Main {
 	
 	public static void main(String[] args) throws IOException {
-		File file = new File("some");
+		File file = new File("input.txt");
 		FileReader filereader = new FileReader(file);
 		BufferedReader br = new BufferedReader(filereader);
 		
 		String str = br.readLine();
 		List<PersonDTO> list = new ArrayList<>();
 		  while(str != null){
-		    list.add(method1(str));
+		    list.add(method1(str));	    
 		    str = br.readLine();
 		  }
 		  br.close();
-		  
+		  for(PersonDTO dto : Caluculator.method(list)){
+			  System.out.println(dto.getHeight() + " " + dto.getWeight());
+		  }
 	}
 
 	public static PersonDTO method1(String str) {
