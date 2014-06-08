@@ -19,8 +19,7 @@ public class CaluculatorTest {
 		list.add(new PersonDTO(174,85));
 		list.add(new PersonDTO(174,65));
 		
-		int moke = Caluculator.method(list);
-		assertThat(moke, is(3));
+		assertThat(Caluculator.method(list), is(3));
 	}
 
 }
