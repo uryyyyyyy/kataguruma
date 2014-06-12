@@ -9,7 +9,7 @@ public class MainTest {
 
 	@Test
 	public void test() {
-		PersonDTO dto = Main.method1("166 71");
+		Human dto = Main.method1("166 71");
 		assertThat(dto.getHeight(), is(166));
 		assertThat(dto.getWeight(), is(71));
 	}
