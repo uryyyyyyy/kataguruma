@@ -17,9 +17,10 @@ public class Main {
 	}
 
 	private static void output(List<Human> list) {
-		Human human = new Human(0, 0);
-		for(Human human2 : human.answerOfKataguruma(list)){
-			System.out.println("(" + human2.getHeight() + ", " + human2.getWeight() + ")");
+		Human dummy_human = new Human(0, 0);
+		int count = 0;
+		for(Human human2 : dummy_human.answerOfKataguruma(list)){
+			System.out.println("(" + human2.getHeight() + ", " + human2.getWeight() + ")" + count++);
 		}
 	}
 

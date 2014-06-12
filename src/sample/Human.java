@@ -7,10 +7,12 @@ public class Human {
 
 	private final int height;
 	private final int weight;
+	private List<Human> katagurumas;
 
 	public Human(int height, int weight){
 		this.height = height;
 		this.weight = weight;
+		this.katagurumas = new ArrayList<Human>();
 	}
 
 	public int getHeight() {
@@ -22,27 +24,20 @@ public class Human {
 	}
 
 	public List<Human> answerOfKataguruma(List<Human> list){
+		if(!katagurumas.isEmpty()){
+			return katagurumas;
+		}
 
-		List<Human> list2 = new ArrayList<>();
 		for(Human human : list){
-			list2 = sample(list, list2, human);
+			if(this.weight < human.getWeight() && this.height < human.getHeight() ){
+				List<Human> mokeHumans = human.answerOfKataguruma(list);
+				if(katagurumas.size() <= mokeHumans.size()){
+					katagurumas = new ArrayList<>(mokeHumans);
+					katagurumas.add(human);
+				}
+			}
 		}
-		list2.add(this);
-		return list2;
-	}
-
-	private List<Human> sample(List<Human> list, List<Human> list2, Human human) {
-		if(this.weight < human.getWeight() && this.height < human.getHeight() ){
-			list2 = sample2(human.answerOfKataguruma(list), list2, human);
-		}
-		return list2;
-	}
-
-	private List<Human> sample2(List<Human> list, List<Human> list2, Human human) {
-		if(list2.size() < list.size()){
-			list2 = list;
-		}
-		return list2;
+		return katagurumas;
 	}
 
 }
