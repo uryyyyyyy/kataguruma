@@ -2,7 +2,6 @@ package sample;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +19,8 @@ public class HumanTest {
 		list.add(new Human(174,85));
 		list.add(new Human(174,65));
 		
-		Human human = new Human(0, 0);
-		assertThat(human.answerOfKataguruma(list).size(), is(3));
+		Human dummy_human = new Human(0, 0);
+		assertThat(dummy_human.teamKatagurumas(list).size(), is(2));
 	}
 
 }

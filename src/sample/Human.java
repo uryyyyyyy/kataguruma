@@ -22,7 +22,7 @@ public class Human {
 		return weight;
 	}
 
-	public List<Human> answerOfKataguruma(List<Human> list){
+	public List<Human> teamKatagurumas(List<Human> list){
 		if(!(this.katagurumas == null)){
 			return this.katagurumas;
 		}
@@ -30,7 +30,7 @@ public class Human {
 		List<Human> cache = new ArrayList<Human>();
 		for(Human human : list){
 			if(this.weight < human.getWeight() && this.height < human.getHeight() ){
-				List<Human> mokeHumans = human.answerOfKataguruma(list);
+				List<Human> mokeHumans = human.teamKatagurumas(list);
 				if(cache.size() <= mokeHumans.size()){
 					cache = new ArrayList<>(mokeHumans);
 					cache.add(human);
