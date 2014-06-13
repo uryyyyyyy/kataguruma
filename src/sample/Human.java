@@ -26,18 +26,30 @@ public class Human {
 		if(!(this.cache == null)){
 			return this.cache;
 		}
-
 		this.cache = new ArrayList<Human>();
 		for(Human human : list){
-			if(this.weight > human.getWeight() && this.height > human.getHeight() ){
-				List<Human> mokeHumans = human.howManyHumanCanRideOnYou(list);
-				if(this.cache.size() <= mokeHumans.size()){
-					this.cache = new ArrayList<>(mokeHumans);
-					this.cache.add(human);
-				}
+			if(!isSmallThanMe(human) ){
+				continue;
 			}
+			calc(list, human);
 		}
 		return this.cache;
+	}
+
+	private void calc(List<Human> list, Human human) {
+		List<Human> currentResult = human.howManyHumanCanRideOnYou(list);
+		if(isBiggerResult(currentResult)){
+			this.cache = new ArrayList<>(currentResult);
+			this.cache.add(human);
+		}
+	}
+
+	private boolean isBiggerResult(List<Human> currentResult) {
+		return this.cache.size() <= currentResult.size();
+	}
+
+	private boolean isSmallThanMe(Human human) {
+		return this.weight > human.getWeight() && this.height > human.getHeight();
 	}
 
 }
