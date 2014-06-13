@@ -20,7 +20,7 @@ public class HumanTest {
 		list.add(new Human(174,65));
 		
 		Human dummy_human = new Human(0, 0);
-		assertThat(dummy_human.teamKatagurumas(list).size(), is(2));
+		assertThat(dummy_human.howManyHumanCanRideOnYou(list).size(), is(2));
 	}
 
 }
