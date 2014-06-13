@@ -17,8 +17,8 @@ public class Main {
 	}
 
 	private static void output(List<Human> list) {
-		Human dummyGiantGay = new Human(Integer.MAX_VALUE, Integer.MAX_VALUE);
-		for(Human human2 : dummyGiantGay.howManyHumanCanRideOnYou(list)){
+		Human dummyBiggestGay = new Human(Integer.MAX_VALUE, Integer.MAX_VALUE);
+		for(Human human2 : dummyBiggestGay.howManyHumanCanRideOnYou(list)){
 			System.out.println("(" + human2.getHeight() + ", " + human2.getWeight() + ")");
 		}
 	}
