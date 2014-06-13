@@ -7,7 +7,7 @@ public class Human {
 
 	private final int height;
 	private final int weight;
-	private List<Human> katagurumas;
+	private List<Human> cache;
 
 	public Human(int height, int weight){
 		this.height = height;
@@ -23,21 +23,21 @@ public class Human {
 	}
 
 	public List<Human> howManyHumanCanRideOnYou(List<Human> list){
-		if(!(this.katagurumas == null)){
-			return this.katagurumas;
+		if(!(this.cache == null)){
+			return this.cache;
 		}
 
-		List<Human> cache = new ArrayList<Human>();
+		this.cache = new ArrayList<Human>();
 		for(Human human : list){
 			if(this.weight > human.getWeight() && this.height > human.getHeight() ){
 				List<Human> mokeHumans = human.howManyHumanCanRideOnYou(list);
-				if(cache.size() <= mokeHumans.size()){
-					cache = new ArrayList<>(mokeHumans);
-					cache.add(human);
+				if(this.cache.size() <= mokeHumans.size()){
+					this.cache = new ArrayList<>(mokeHumans);
+					this.cache.add(human);
 				}
 			}
 		}
-		return this.katagurumas = cache;
+		return this.cache;
 	}
 
 }
