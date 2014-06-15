@@ -38,6 +38,7 @@ public class Main {
 			List<String> strList = readAllLine(fileName);
 			return toHumanList(strList);
 		}catch(IOException e){
+			e.printStackTrace();
 			throw new RuntimeException();
 		}
 	}
