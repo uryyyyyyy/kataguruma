@@ -7,7 +7,7 @@ public class Human {
 
 	private final int height;
 	private final int weight;
-	private List<Human> cache;
+	private List<Human> cacheKataguruma;
 
 	public Human(int height, int weight){
 		this.height = height;
@@ -23,28 +23,28 @@ public class Human {
 	}
 
 	public List<Human> howManyHumanCanKatagurumaOnYou(List<Human> list){
-		if(this.cache != null){
-			return this.cache;
+		if(this.cacheKataguruma != null){
+			return this.cacheKataguruma;
 		}
-		this.cache = new ArrayList<Human>();
+		this.cacheKataguruma = new ArrayList<Human>();
 		for(Human human : list){
 			if(isSmallerThanMe(human) ){
 			addKataguruma(list, human);
 			}
 		}
-		return this.cache;
+		return this.cacheKataguruma;
 	}
 
 	private void addKataguruma(List<Human> list, Human human) {
-		List<Human> currentResult = human.howManyHumanCanKatagurumaOnYou(list);
-		if(isBiggerResult(currentResult)){
-			this.cache = new ArrayList<>(currentResult);
-			this.cache.add(human);
+		List<Human> currentKataguruma = human.howManyHumanCanKatagurumaOnYou(list);
+		if(isBiggerKataguruma(currentKataguruma)){
+			this.cacheKataguruma = new ArrayList<>(currentKataguruma);
+			this.cacheKataguruma.add(human);
 		}
 	}
 
-	private boolean isBiggerResult(List<Human> currentResult) {
-		return this.cache.size() <= currentResult.size();
+	private boolean isBiggerKataguruma(List<Human> currentKataguruma) {
+		return this.cacheKataguruma.size() <= currentKataguruma.size();
 	}
 
 	private boolean isSmallerThanMe(Human human) {
