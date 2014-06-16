@@ -20,7 +20,7 @@ public class HumanTest {
 		list.add(new Human(174,65));
 		
 		Human dummyBiggestGay = new Human(Integer.MAX_VALUE, Integer.MAX_VALUE);
-		List<Human> resultsHumans = dummyBiggestGay.howManyHumanCanRideOnYou(list);
+		List<Human> resultsHumans = dummyBiggestGay.howManyHumanCanKatagurumaOnYou(list);
 		assertThat(resultsHumans.size(), is(3));
 		assertThat(resultsHumans.get(0).getWeight(), is(71));
 		assertThat(resultsHumans.get(1).getWeight(), is(85));

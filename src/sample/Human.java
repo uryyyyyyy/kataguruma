@@ -22,22 +22,21 @@ public class Human {
 		return weight;
 	}
 
-	public List<Human> howManyHumanCanRideOnYou(List<Human> list){
+	public List<Human> howManyHumanCanKatagurumaOnYou(List<Human> list){
 		if(this.cache != null){
 			return this.cache;
 		}
 		this.cache = new ArrayList<Human>();
 		for(Human human : list){
-			if(!isSmallerThanMe(human) ){
-				continue;
+			if(isSmallerThanMe(human) ){
+			addKataguruma(list, human);
 			}
-			calc(list, human);
 		}
 		return this.cache;
 	}
 
-	private void calc(List<Human> list, Human human) {
-		List<Human> currentResult = human.howManyHumanCanRideOnYou(list);
+	private void addKataguruma(List<Human> list, Human human) {
+		List<Human> currentResult = human.howManyHumanCanKatagurumaOnYou(list);
 		if(isBiggerResult(currentResult)){
 			this.cache = new ArrayList<>(currentResult);
 			this.cache.add(human);
