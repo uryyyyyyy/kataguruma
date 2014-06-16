@@ -23,12 +23,12 @@ public class Human {
 	}
 
 	public List<Human> howManyHumanCanRideOnYou(List<Human> list){
-		if(!(this.cache == null)){
+		if(this.cache != null){
 			return this.cache;
 		}
 		this.cache = new ArrayList<Human>();
 		for(Human human : list){
-			if(!isSmallThanMe(human) ){
+			if(!isSmallerThanMe(human) ){
 				continue;
 			}
 			calc(list, human);
@@ -48,7 +48,7 @@ public class Human {
 		return this.cache.size() <= currentResult.size();
 	}
 
-	private boolean isSmallThanMe(Human human) {
+	private boolean isSmallerThanMe(Human human) {
 		return this.weight > human.getWeight() && this.height > human.getHeight();
 	}
 
